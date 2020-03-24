@@ -20,3 +20,14 @@
 def how_many_ways(digitarray):
     # implement here
     
+    digitarray=str(digitarray)
+    dp_list = [0] * (len(digitarray) + 1)
+    dp_list[0] = 0
+    for i in range(1, len(dp_list)):
+        if digitarray[i - 1] != '0':
+            dp_list[i] = dp_list[i - 1]*2
+        if i != 0 and '08' < digitarray[i - 2:i] < '26':
+            dp_list[i] += dp_list[i - 2]*2
+        print(dp_list)
+    print(dp_list[-1])
+how_many_ways(0219)  
